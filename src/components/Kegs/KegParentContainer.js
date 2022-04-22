@@ -8,6 +8,7 @@ import Button from '@mui/material/Button';
 import KegRow from "./KegRow.js"
 import KegAddForm from './KegAddForm.js';
 
+
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
   ...theme.typography.body2,
@@ -24,18 +25,38 @@ class KegParentContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      formVisibleOnPage: <KegRow />,
+      kegList: [],
+      formVisibleOnPage: false
     };
   }
-
-  // let view = <KegRow />;
-
-  handleAddKegCancelButton() {
+  handleAddingNewKegToList = (newKeg) => {
+    const newKegList = this.state.kegList.concat(newKeg);
+    this.setState({
+      kegList: newKegList
+    });
+    console.log("got here");
     this.setState(prevState => ({
       formVisibleOnPage: !prevState.formVisibleOnPage
     }));
   }
+
+  handleClick = () => {
+    this.setState(prevState => ({
+      formVisibleOnPage: !prevState.formVisibleOnPage
+    }));
+  }
+
+
   render() {
+    let currentlyVisibleState = null;
+    let addCancelText = null;
+    if (this.state.formVisibleOnPage) {
+      currentlyVisibleState = <KegAddForm addNewKeg={this.handleAddingNewKegToList} />
+      addCancelText = "Cancel";
+    } else {
+      currentlyVisibleState = <KegRow />
+      addCancelText = "Add Keg"
+    }
     return (
       <React.Fragment>
         <CssBaseline />
@@ -44,12 +65,12 @@ class KegParentContainer extends React.Component {
             <Grid item xs={10}>
             </Grid>
             <Grid item xs={2} style={{ textAlign: 'right' }}>
-              <Button variant="contained" size="small" onClick={this.state.handleAddKegCancelButton}>Add Keg</Button>
+              <Button variant="contained" size="small" onClick={this.handleClick}>{addCancelText}</Button>
             </Grid>
             <Grid item xs={12}>
               <Item>
                 <h2>Kegs</h2>
-                {this.state.formVisibleOnPage}
+                {currentlyVisibleState}
               </Item>
             </Grid>
           </Grid>

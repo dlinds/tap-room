@@ -6,9 +6,17 @@ import InputLabel from '@mui/material/InputLabel';
 import InputAdornment from '@mui/material/InputAdornment';
 import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
-
+import { v4 } from 'uuid';
 
 export default function KegAddForm(props) {
+
+  function handleNewKeg(event) {
+    event.preventDefault();
+    props.addNewKeg({ name: event.target.name.value, brand: event.target.brand.value, abv: event.target.abv.value, price: event.target.price.value, id: v4() })
+    event.target.reset();
+    console.log("kegAddForm");
+  }
+
   return (
     <Box
       component="form"
@@ -17,18 +25,28 @@ export default function KegAddForm(props) {
       }}
       noValidate
       autoComplete="off"
+      onSubmit={handleNewKeg}
     >
       <div>
-        <TextField id="standard-basic" fullWidth label="Name" variant="standard" />
+        <TextField
+          fullWidth
+          label="Name"
+          name="name"
+          variant="standard" />
       </div>
       <div>
-        <TextField id="standard-basic" fullWidth label="Brand" variant="standard" />
+        <TextField
+          name="brand"
+          fullWidth
+          label="Brand"
+          variant="standard" />
       </div>
       <div>
         <FormControl variant="standard" sx={{ m: 1, mt: 3, width: '24ch' }}>
-          <InputLabel htmlFor="standard-adornment-weight">ABV</InputLabel>
+          <InputLabel htmlFor="abv-input">ABV</InputLabel>
           <Input
-            id="standard-adornment-weight"
+            id="abv-input"
+            name="abv"
             endAdornment={<InputAdornment position="end">%</InputAdornment>}
             aria-describedby="standard-weight-helper-text"
             inputProps={{
@@ -40,9 +58,10 @@ export default function KegAddForm(props) {
           />
         </FormControl>
         <FormControl variant="standard" sx={{ m: 1, mt: 3, width: '24ch' }}>
-          <InputLabel htmlFor="standard-adornment-weight">Price</InputLabel>
+          <InputLabel htmlFor="price-input">Price</InputLabel>
           <Input
-            id="standard-adornment-weight"
+            id="price-input"
+            name="price"
             startAdornment={<InputAdornment position="start">$</InputAdornment>}
             aria-describedby="standard-weight-helper-text"
             inputProps={{
@@ -53,7 +72,7 @@ export default function KegAddForm(props) {
         </FormControl>
 
       </div>
-      <Button variant="contained" size="small" sx={{ mt: 3 }} >Add Keg</Button>
+      <Button variant="contained" size="small" type="submit" sx={{ mt: 3 }} >Add Keg</Button>
     </Box>
 
   )
