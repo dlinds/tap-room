@@ -7,7 +7,7 @@ import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 import KegRow from "./KegRow.js"
 import KegAddForm from './KegAddForm.js';
-
+import KegDetails from './KegDetails.js';
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -26,7 +26,7 @@ class KegParentContainer extends React.Component {
     super(props);
     this.state = {
       kegList: [],
-      formVisibleOnPage: false,
+      pageView: "form",
       selectedKeg: null
     };
   }
@@ -35,26 +35,40 @@ class KegParentContainer extends React.Component {
     this.setState({
       kegList: newKegList
     });
-    this.setState(prevState => ({
-      formVisibleOnPage: !prevState.formVisibleOnPage
-    }));
+    this.setState({ pageView: "home" })
   }
 
-  handleAddCancelBackClick = () => {
-    this.setState(prevState => ({
-      formVisibleOnPage: !prevState.formVisibleOnPage
-    }));
+  // handleAddCancelBackClick = () => {
+  //   this.setState(prevState => ({
+  //     pageView: !prevState.pageView
+  //   }));
+  // }
+  handleAddCancelBackClick = (event) => {
+    if (event === "Cancel") {
+      this.setState({ pageView: "home" })
+    } else if (event === "Back") {
+      this.setState({ pageView: "home" })
+    } else {
+      this.setState({ pageView: "form" })
+    }
   }
 
+  handleClickKegForDetails = (e) => {
+    this.setState({ pageView: "details" })
+    console.log("handleClickKegForDetails")
+  }
 
   render() {
     let currentlyVisibleState = null;
     let addCancelText = null;
-    if (this.state.formVisibleOnPage) {
+    if (this.state.pageView === "form") {
       currentlyVisibleState = <KegAddForm addNewKeg={this.handleAddingNewKegToList} />
       addCancelText = "Cancel";
+    } else if (this.state.pageView === "details") {
+      currentlyVisibleState = <KegDetails />
+      addCancelText = "Back"
     } else {
-      currentlyVisibleState = <KegRow kegs={this.state.kegList} />
+      currentlyVisibleState = <KegRow kegs={this.state.kegList} kegDetails={this.handleClickKegForDetails} />
       addCancelText = "Add Keg"
     }
     return (
@@ -65,7 +79,7 @@ class KegParentContainer extends React.Component {
             <Grid item xs={10}>
             </Grid>
             <Grid item xs={2} style={{ textAlign: 'right' }}>
-              <Button variant="contained" size="small" onClick={this.handleAddCancelBackClick}>{addCancelText}</Button>
+              <Button variant="contained" size="small" onClick={() => this.handleAddCancelBackClick(addCancelText)}>{addCancelText}</Button>
             </Grid>
             <Grid item xs={12}>
               <Item>

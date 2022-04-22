@@ -10,9 +10,8 @@ export default function Keg(props) {
   }
 
   function handleGettingKegDetails(event) {
-    console.log("test");
+    // props.kegDetails;
   }
-
 
   return (
     <React.Fragment>

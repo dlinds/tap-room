@@ -16,7 +16,8 @@ function KegRow(props) {
                 brand={keg.brand}
                 abv={keg.abv}
                 price={keg.price}
-                stock={keg.stock} />
+                stock={keg.stock}
+                kegDetails={keg.kegDetails} />
             </Grid>
           ))}
         </Grid>
