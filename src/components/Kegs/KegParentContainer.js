@@ -26,7 +26,8 @@ class KegParentContainer extends React.Component {
     super(props);
     this.state = {
       kegList: [],
-      formVisibleOnPage: false
+      formVisibleOnPage: false,
+      selectedKeg: null
     };
   }
   handleAddingNewKegToList = (newKeg) => {
@@ -34,13 +35,12 @@ class KegParentContainer extends React.Component {
     this.setState({
       kegList: newKegList
     });
-    console.log(newKeg);
     this.setState(prevState => ({
       formVisibleOnPage: !prevState.formVisibleOnPage
     }));
   }
 
-  handleClick = () => {
+  handleAddCancelBackClick = () => {
     this.setState(prevState => ({
       formVisibleOnPage: !prevState.formVisibleOnPage
     }));
@@ -65,7 +65,7 @@ class KegParentContainer extends React.Component {
             <Grid item xs={10}>
             </Grid>
             <Grid item xs={2} style={{ textAlign: 'right' }}>
-              <Button variant="contained" size="small" onClick={this.handleClick}>{addCancelText}</Button>
+              <Button variant="contained" size="small" onClick={this.handleAddCancelBackClick}>{addCancelText}</Button>
             </Grid>
             <Grid item xs={12}>
               <Item>

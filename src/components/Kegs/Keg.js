@@ -4,6 +4,16 @@ import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 
 export default function Keg(props) {
+
+  function handlePintSale(event) {
+
+  }
+
+  function handleGettingKegDetails(event) {
+    console.log("test");
+  }
+
+
   return (
     <React.Fragment>
       <Paper
@@ -12,14 +22,22 @@ export default function Keg(props) {
           paddingTop: 1,
           marginRight: 3,
           marginBottom: 2,
-          backgroundColor: (theme) =>
-            theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
         }}
+        onClick={handleGettingKegDetails}
       ><h3 style={{ marginBottom: '0' }}>{props.name}</h3>
+
         <Grid container spacing={2} sx={{ px: 2 }}>
           <Grid item xs={6} style={{ textAlign: 'left' }}>
-            <p>{props.brand}</p>
-            <p>{props.abv}% ABV</p>
+            <p >
+              <strong>Brand</strong>
+              <br />
+              ${props.brand}
+            </p>
+            <p >
+              <strong>ABV</strong>
+              <br />
+              {props.abv}%
+            </p>
           </Grid>
           <Grid item xs={6} style={{ textAlign: 'right' }}>
             <p >
@@ -34,7 +52,7 @@ export default function Keg(props) {
             </p>
           </Grid>
         </Grid>
-        <Button variant="contained" size="small" sx={{ mb: 1, px: 2 }} >Sell Pint</Button>
+        <Button variant="contained" size="small" type="button" sx={{ mb: 1, px: 2 }} >Sell Pint</Button>
       </Paper>
     </React.Fragment >
   )
