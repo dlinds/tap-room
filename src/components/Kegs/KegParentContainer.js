@@ -34,7 +34,7 @@ class KegParentContainer extends React.Component {
     this.setState({
       kegList: newKegList
     });
-    console.log("got here");
+    console.log(newKeg);
     this.setState(prevState => ({
       formVisibleOnPage: !prevState.formVisibleOnPage
     }));
@@ -54,7 +54,7 @@ class KegParentContainer extends React.Component {
       currentlyVisibleState = <KegAddForm addNewKeg={this.handleAddingNewKegToList} />
       addCancelText = "Cancel";
     } else {
-      currentlyVisibleState = <KegRow />
+      currentlyVisibleState = <KegRow kegs={this.state.kegList} />
       addCancelText = "Add Keg"
     }
     return (

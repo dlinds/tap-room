@@ -12,9 +12,8 @@ export default function KegAddForm(props) {
 
   function handleNewKeg(event) {
     event.preventDefault();
-    props.addNewKeg({ name: event.target.name.value, brand: event.target.brand.value, abv: event.target.abv.value, price: event.target.price.value, id: v4() })
+    props.addNewKeg({ name: event.target.name.value, brand: event.target.brand.value, abv: event.target.abv.value, price: event.target.price.value, stock: event.target.stock.value, id: v4() })
     event.target.reset();
-    console.log("kegAddForm");
   }
 
   return (
@@ -70,7 +69,10 @@ export default function KegAddForm(props) {
             }}
           />
         </FormControl>
-
+        <input
+          type="hidden"
+          value="124"
+          name="stock" />
       </div>
       <Button variant="contained" size="small" type="submit" sx={{ mt: 3 }} >Add Keg</Button>
     </Box>

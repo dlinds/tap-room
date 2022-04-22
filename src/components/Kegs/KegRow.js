@@ -8,9 +8,15 @@ function KegRow(props) {
     <Grid sx={{ flexGrow: 1 }} container spacing={2}>
       <Grid item xs={12}>
         <Grid container justifyContent="center" spacing={8}>
-          {[0, 1, 2, 3, 4].map((value) => (
-            <Grid key={value} item>
-              <Keg />
+          {props.kegs.map((keg) => (
+            <Grid key={keg.id}>
+              <Keg
+                id={keg.id}
+                name={keg.name}
+                brand={keg.brand}
+                abv={keg.abv}
+                price={keg.price}
+                stock={keg.stock} />
             </Grid>
           ))}
         </Grid>
