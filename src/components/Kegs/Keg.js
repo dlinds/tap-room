@@ -23,7 +23,7 @@ export default function Keg(props) {
             <p>100 / 124</p>
           </Grid>
         </Grid>
-        <Button variant="contained" size="small" sx={{ mb: 1, px: 2 }} >Add Keg</Button>
+        <Button variant="contained" size="small" sx={{ mb: 1, px: 2 }} >Sell Pint</Button>
       </Paper>
     </React.Fragment >
   )
