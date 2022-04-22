@@ -33,7 +33,10 @@ export default function KegAddForm(props) {
             aria-describedby="standard-weight-helper-text"
             inputProps={{
               'aria-label': 'weight',
+              'min': 0,
+              'max': 99
             }}
+            type='number'
           />
         </FormControl>
         <FormControl variant="standard" sx={{ m: 1, mt: 3, width: '24ch' }}>
@@ -44,6 +47,7 @@ export default function KegAddForm(props) {
             aria-describedby="standard-weight-helper-text"
             inputProps={{
               'aria-label': 'weight',
+              'min': 0
             }}
           />
         </FormControl>
