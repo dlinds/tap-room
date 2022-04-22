@@ -31,14 +31,16 @@ export default function KegAddForm(props) {
           fullWidth
           label="Name"
           name="name"
-          variant="standard" />
+          variant="standard"
+          required="required" />
       </div>
       <div>
         <TextField
           name="brand"
           fullWidth
           label="Brand"
-          variant="standard" />
+          variant="standard"
+          required="required" />
       </div>
       <div>
         <FormControl variant="standard" sx={{ m: 1, mt: 3, width: '24ch' }}>
@@ -54,6 +56,7 @@ export default function KegAddForm(props) {
               'max': 99
             }}
             type='number'
+            required="required"
           />
         </FormControl>
         <FormControl variant="standard" sx={{ m: 1, mt: 3, width: '24ch' }}>
@@ -67,6 +70,8 @@ export default function KegAddForm(props) {
               'aria-label': 'weight',
               'min': 0
             }}
+            type='number'
+            required="required"
           />
         </FormControl>
         <input
