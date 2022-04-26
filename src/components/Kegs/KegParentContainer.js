@@ -83,7 +83,7 @@ class KegParentContainer extends React.Component {
     return (
       <React.Fragment>
         <CssBaseline />
-        <Container maxWidth="lg" sx={{ p: 2 }} >
+        <Container maxWidth="md" sx={{ p: 2 }} >
           <Grid container spacing={2} >
             <Grid item xs={10}>
             </Grid>
