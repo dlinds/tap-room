@@ -5,7 +5,8 @@ import Keg from "./Keg.js";
 function KegRow(props) {
 
   return (
-    <Grid sx={{ flexGrow: 1 }} container>
+    <Grid sx={{ flexGrow: 1 }} container justifyContent="center">
+      <h1>Keg List</h1>
       <Grid item xs={12}>
         <Grid container justifyContent="center">
           {props.kegs.map((keg) => (
@@ -17,7 +18,7 @@ function KegRow(props) {
                 abv={keg.abv}
                 price={keg.price}
                 stock={keg.stock}
-                kegDetails={keg.kegDetails} />
+                kegDetails={props.kegDetails} />
             </Grid>
           ))}
         </Grid>

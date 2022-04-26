@@ -17,6 +17,7 @@ export default function KegAddForm(props) {
   }
 
   return (
+
     <Box
       component="form"
       sx={{
@@ -26,6 +27,7 @@ export default function KegAddForm(props) {
       autoComplete="off"
       onSubmit={handleNewKeg}
     >
+      <h1>Add Keg</h1>
       <div>
         <TextField
           fullWidth

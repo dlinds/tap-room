@@ -9,9 +9,9 @@ export default function Keg(props) {
 
   }
 
-  function handleGettingKegDetails(event) {
-    // props.kegDetails;
-  }
+  // function handleGettingKegDetails(event) {
+  //   console.log(event)
+  // }
 
   return (
     <React.Fragment>
@@ -22,8 +22,7 @@ export default function Keg(props) {
           marginRight: 3,
           marginBottom: 2,
         }}
-        onClick={handleGettingKegDetails}
-      ><h3 style={{ marginBottom: '0' }}>{props.name}</h3>
+      ><h2 style={{ marginBottom: '0' }}>{props.name}</h2>
 
         <Grid container spacing={2} sx={{ px: 2 }}>
           <Grid item xs={6} style={{ textAlign: 'left' }}>
@@ -52,6 +51,8 @@ export default function Keg(props) {
           </Grid>
         </Grid>
         <Button variant="contained" size="small" type="button" sx={{ mb: 1, px: 2 }} >Sell Pint</Button>
+        <Button variant="contained" size="small" type="button" sx={{ mb: 1, ml: 2, px: 2 }} onClick={() => props.kegDetails(props.id)}>Details</Button>
+
       </Paper>
     </React.Fragment >
   )
