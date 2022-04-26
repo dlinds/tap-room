@@ -53,12 +53,18 @@ class KegParentContainer extends React.Component {
     }
   }
 
-  handleClickKegForDetails = (e) => {
-    console.log(e.target);
+  handlePintSale = (id) => {
+    const selectedKeg = this.state.kegList.filter(k => k.id === id)[0];
+    if (selectedKeg.stock > 0) {
+      selectedKeg.stock--;
+    }
+    this.setState({ selectedKeg: selectedKeg })
+  }
+
+  handleClickKegForDetails = (id) => {
     this.setState({ pageView: "details" })
-    const selectedKeg = this.state.kegList.filter(k => k.id === e)[0];
+    const selectedKeg = this.state.kegList.filter(k => k.id === id)[0];
     this.setState({ selectedKeg: selectedKeg });
-    console.log(this.state.selectedKeg)
   }
 
   render() {
@@ -71,7 +77,7 @@ class KegParentContainer extends React.Component {
       currentlyVisibleState = <KegDetails keg={this.state.selectedKeg} />
       buttonText = "Back"
     } else {
-      currentlyVisibleState = <KegRow kegs={this.state.kegList} kegDetails={this.handleClickKegForDetails} />
+      currentlyVisibleState = <KegRow kegs={this.state.kegList} sellPint={this.handlePintSale} kegDetails={this.handleClickKegForDetails} />
       buttonText = "Add Keg"
     }
     return (

@@ -5,14 +5,6 @@ import Grid from '@mui/material/Grid';
 
 export default function Keg(props) {
 
-  function handlePintSale(event) {
-
-  }
-
-  // function handleGettingKegDetails(event) {
-  //   console.log(event)
-  // }
-
   return (
     <React.Fragment>
       <Paper
@@ -50,7 +42,7 @@ export default function Keg(props) {
             </p>
           </Grid>
         </Grid>
-        <Button variant="contained" size="small" type="button" sx={{ mb: 1, px: 2 }} >Sell Pint</Button>
+        <Button variant="contained" size="small" type="button" sx={{ mb: 1, px: 2 }} onClick={() => props.sellPint(props.id)}>Sell Pint</Button>
         <Button variant="contained" size="small" type="button" sx={{ mb: 1, ml: 2, px: 2 }} onClick={() => props.kegDetails(props.id)}>Details</Button>
 
       </Paper>
