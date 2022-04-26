@@ -1,6 +1,8 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import PropTypes from "prop-types";
+
 export default function KegDetails(props) {
 
   return (
@@ -27,3 +29,10 @@ export default function KegDetails(props) {
     </Box >
   )
 }
+
+KegDetails.propTypes = {
+  name: PropTypes.string,
+  brand: PropTypes.string,
+  abv: PropTypes.number,
+  price: PropTypes.number,
+};

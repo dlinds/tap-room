@@ -17,9 +17,6 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-
-
-
 class KegParentContainer extends React.Component {
 
   constructor(props) {
@@ -38,11 +35,6 @@ class KegParentContainer extends React.Component {
     this.setState({ pageView: "home" })
   }
 
-  // handleAddCancelBackClick = () => {
-  //   this.setState(prevState => ({
-  //     pageView: !prevState.pageView
-  //   }));
-  // }
   handleAddCancelBackClick = (event) => {
     if (event === "Cancel") {
       this.setState({ pageView: "home" })

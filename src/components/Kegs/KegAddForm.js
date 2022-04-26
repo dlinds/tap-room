@@ -6,9 +6,10 @@ import InputLabel from '@mui/material/InputLabel';
 import InputAdornment from '@mui/material/InputAdornment';
 import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
+import PropTypes from "prop-types";
 import { v4 } from 'uuid';
 
-export default function KegAddForm(props) {
+function KegAddForm(props) {
 
   function handleNewKeg(event) {
     event.preventDefault();
@@ -87,3 +88,10 @@ export default function KegAddForm(props) {
 
   )
 }
+
+
+KegAddForm.propTypes = {
+  addNewKeg: PropTypes.func
+};
+
+export default KegAddForm;

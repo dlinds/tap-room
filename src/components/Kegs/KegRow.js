@@ -1,6 +1,7 @@
 import React from "react";
 import Grid from '@mui/material/Grid';
 import Keg from "./Keg.js";
+import PropTypes from "prop-types";
 
 function KegRow(props) {
 
@@ -27,5 +28,15 @@ function KegRow(props) {
     </Grid>
   )
 }
+
+KegRow.propTypes = {
+  id: PropTypes.number,
+  name: PropTypes.string,
+  brand: PropTypes.string,
+  abv: PropTypes.number,
+  price: PropTypes.number,
+  sellPint: PropTypes.func,
+  kegDetails: PropTypes.func
+};
 
 export default KegRow;

@@ -2,8 +2,9 @@ import React from "react";
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
+import PropTypes from "prop-types";
 
-export default function Keg(props) {
+function Keg(props) {
 
   return (
     <React.Fragment>
@@ -49,3 +50,16 @@ export default function Keg(props) {
     </React.Fragment >
   )
 }
+
+
+Keg.propTypes = {
+  id: PropTypes.number,
+  name: PropTypes.string,
+  brand: PropTypes.string,
+  abv: PropTypes.number,
+  price: PropTypes.number,
+  sellPint: PropTypes.func,
+  kegDetails: PropTypes.func
+};
+
+export default Keg;
