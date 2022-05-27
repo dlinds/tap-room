@@ -13,10 +13,12 @@
 - _Javascript_
 - _Material UI_
 
+## Viewing the application
+This application is currently hosted with Github Pages. To view, navigate to [https://dlinds.github.io/tap-room/](https://dlinds.github.io/tap-room/).
 
 ## Description
 
-This is a React web application for a brewery to manage keys and sell pints. Once run, the site will allow the owner to add kegs with some info, and sell pints from those kegs. The application is written in React and manages the kegs with state.
+This is a React web application for a brewery to manage keys and sell pints. Once run, the site will allow the owner to add kegs with some info, and sell pints from those kegs. The application is written in React and manages the kegs with state. I also explored the use of Material UI for this project.
 
 
 A site diagram is pictured below.
@@ -65,7 +67,7 @@ Once the project is downloaded to your computer, you will need to download the p
 
 # Known Bugs
 
-- _There are no known bugs at this time_
+- _Mobile scaling does not work correctly_
 
 <br>
 
